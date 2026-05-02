@@ -3,6 +3,8 @@ import requests
 from utilities.unique_id import unique_id
 import asyncio
 
+BACKPRESSURE_CONSTANT = 10
+
 def find_least_busy_worker(data):
     if(len(data["workers"])==0):
         return -1
@@ -13,6 +15,8 @@ def find_least_busy_worker(data):
         if(worker.cur_input_count < min_inputs):
             min_worker = worker
             min_inputs = worker.cur_input_count
+    if min_inputs > BACKPRESSURE_CONSTANT:
+        return -3
     return min_worker
 
 async def send_inference(data, arr, lock):

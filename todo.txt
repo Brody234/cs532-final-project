@@ -1,2 +1,12 @@
 TODO:
 - Create a script that tests by making many inputs and outputs, on multiple workers
+- Backpressure handling (reject if a certain number of reqs per worker)
+- log file with latency
+    - Develop load generation scripts to simulate different traffic patterns
+    - Evaluate the system under different configurations such as batch size, scheduling policy, and traffic load
+    - Compare how batching, scheduling, and load conditions affect latency and throughput
+- Complete the final system demo and record the video report
+
+Optional:
+- Implement dynamic batching with adjustable batch size based on system load
+- Implement priority-based scheduling for handling different request types
